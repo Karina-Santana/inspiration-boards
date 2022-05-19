@@ -1,21 +1,22 @@
 <h1>Logo</h1>
 
 
-<form action="/show_results">
-    <label for="">Search pictures: </label>
-    <input type="text" name="search_picture">
-
-    <button>Search</button>
-</form>
-
-
-
-
-
 <% if logged_in? %>
     <h2>Welcome <%= current_user['name'] %></h2>
 
-    
+    <form action="/show_results">
+        <label for="">Search pictures: </label>
+        <input type="text" name="search_picture">
+
+        <button>🔎</button>
+    </form>
+
+    <form action="/create_board" method="POST">
+        <label for="">Create new board: </label>
+        <input type="text" name="board_title">
+
+        <button>Create board</button>
+    </form>
 
     <form action="/sessions" method="POST">
         <input type="hidden" name="_method" value="delete">
@@ -29,20 +30,27 @@
     <a href="/sign_up">Sign up</a>
     <a href="/login">Login</a>
 
+
+    <form action="/show_results">
+        <label for="">Search pictures: </label>
+        <input type="text" name="search_picture">
+
+        <button>🔎</button>
+    </form>
+
+
     <section>
-    <% board_items.each do |board| %>
-        <article>
-            <img src="<%= board['image_url'] %>" alt="">
+        <% board_items.each do |board| %>
+            <article>
+                <img src="<%= board['image_url'] %>" alt="">
 
+                <form action="/board/<%= board['id'] %>" method="POST">
+                    <input type="hidden" name="_method" value="delete">
 
-            <form action="/board/<%= board['id'] %>" method="POST">
-                <input type="hidden" name="_method" value="delete">
-
-            </form>
-        </article>
-    <% end %>
-</section>
+                </form>
+            </article>
+        <% end %>
+    </section>
 
 <% end %>
-
 

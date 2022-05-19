@@ -51,6 +51,10 @@ post '/board' do
   redirect '/'
 end
 
+post '/create_board' do
+  "Hello World"
+end
+
 get '/sign_up' do
   erb :'users/new'
 end
@@ -108,3 +112,4 @@ end
 get '/show_results' do
   "Hello World"
 end
+
