@@ -1,0 +1,42 @@
+<h1>Logo</h1>
+
+<% if logged_in? %>
+    <h2>Welcome to <%= current_user['name'] %>'s Inspiration Boards!</h2>
+
+    <form action="/sessions" method="POST">
+        <input type="hidden" name="_method" value="delete">
+
+        <button>Logout</button>
+    </form>
+
+    <section>
+        <% board_items.each do |board| %>
+            <article>
+                <img src="<%= board['id'] %>" alt="">
+
+
+
+                <form action="/board/<%= board['id'] %>" method="POST">
+                    <input type="hidden" name="_method" value="delete">
+
+                    <button>Delete</button>
+                </form>
+            </article>
+        <% end %>
+    </section>
+
+<% else %>
+    <a href="/sign_up">Sign up</a>
+    <a href="/login">Login</a>
+
+    <form action="/show_results">
+        <label for="">Search pictures: </label>
+        <input type="text" name="search_picture">
+
+        <button>Search</button>
+    </form>
+
+    <%# random pictures %>
+
+<% end %>
+
