@@ -5,7 +5,7 @@
 This is an application to search for images and inspirations to accomplish what you want.
 The app has more than 300,000 pictures coming from all over the world and you can use them for your Inspiration Board.
 
-<a href="">Click here to check it out</a>
+<a href="https://nameless-mountain-77703.herokuapp.com/">Click here to check it out</a>
 
 How to use it:
 
