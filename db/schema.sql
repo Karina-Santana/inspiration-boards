@@ -25,5 +25,9 @@ CREATE TABLE boards(
     image_url TEXT
 );
 
--- Write this on the terminal:
+-- Write this on the terminal to push:
+-- heroku pg:push inspiration_board DATABASE_URL
+
+-- When you want to update databe, write this:
+-- heroku pg:reset
 -- heroku pg:push inspiration_board DATABASE_URL

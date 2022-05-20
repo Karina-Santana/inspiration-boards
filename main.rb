@@ -42,23 +42,26 @@ end
 
 post '/board' do
   board_title = params['board_title']
-  image_url = params['image_url']
 
-  create_board(board_title, image_url)
 
-  redirect '/add_picture'
+  redirect "/add_picture?board_title=#{board_title}"
 end
 
 get '/add_picture' do
-  erb :'boards/new_board'
+  board_title = params['board_title']
+
+
+  erb :'boards/new_board', locals:{
+    board_title: board_title
+  }
 end
 
 post '/add_picture' do
   board_title = params['board_title']
   image_url = params['image_url']
 
-  get_photos(board_title, image_url)
-
+  create_board(board_title, image_url)
+ 
   redirect '/'
 end
 
