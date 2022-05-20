@@ -17,3 +17,7 @@ end
 def find_user_by_id(id)
     run_sql("SELECT * FROM users WHERE id = $1", [id])[0]
 end
+
+def find_board_by_user_id(user_id)
+    run_sql("SELECT * FROM boards WHERE user_id = $1", [user_id])[0]
+end

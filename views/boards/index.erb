@@ -11,10 +11,17 @@
         <button>Create board</button>
     </form>
 
+    <%= board_title['board_title'] %>
+    <input type="hidden" name="board_title" value="<%= board_title %>"> 
+
+    <% board_photos.each do |photos| %>
+        <img src="<%= photos['image_url'] %>" alt="">
+    <% end %>
+
     <form action="/sessions" method="POST">
+        <button>Logout</button>
         <input type="hidden" name="_method" value="delete">
         
-        <button>Logout</button>
     </form>
 
 <% else %>
@@ -22,7 +29,6 @@
 
     <a href="/sign_up">Sign up</a>
     <a href="/login">Login</a>
-
 
     <section>
         <% board_items.each do |board| %>

@@ -21,9 +21,12 @@ CREATE TABLE users(
 
 CREATE TABLE boards(
     id SERIAL PRIMARY KEY,
+    user_id INTEGER,
     board_title TEXT,
     image_url TEXT
 );
+
+
 
 -- Write this on the terminal to push:
 -- heroku pg:push inspiration_board DATABASE_URL

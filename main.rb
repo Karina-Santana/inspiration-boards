@@ -31,25 +31,38 @@ require './helpers/sessions_helper'
 
 
 
-
 get '/' do
   board_items = home_photos()
 
+  # if there_is_board?(id)
+  #   board_title = current_board["user_id"]
+  # else
+  #   board_title = []
+  # end
+  
+
+  if logged_in?
+    user_id = current_user["id"]
+    board_photos = board_photos(user_id)
+  else
+    board_photos = []
+  end
+  
   erb :'boards/index', locals: {
-    board_items: board_items
+    board_items: board_items,
+    board_photos: board_photos
+    # board_title: board_title
   }
 end
 
 post '/board' do
   board_title = params['board_title']
 
-
   redirect "/add_picture?board_title=#{board_title}"
 end
 
 get '/add_picture' do
   board_title = params['board_title']
-
 
   erb :'boards/new_board', locals:{
     board_title: board_title
@@ -59,8 +72,9 @@ end
 post '/add_picture' do
   board_title = params['board_title']
   image_url = params['image_url']
+  user_id = current_user["id"]
 
-  create_board(board_title, image_url)
+  create_board(board_title, image_url, user_id)
  
   redirect '/'
 end
