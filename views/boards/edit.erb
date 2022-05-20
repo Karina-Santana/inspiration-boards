@@ -1,3 +1,13 @@
 <h1>Edit board</h1>
 
-<form action="/board/"></form>
+<form action="/board/<%= board['board_title'] %>" method="POST">
+    <input type="hidden" name="_method" value="put">
+
+    <label for="">Title: </label>
+    <input type="text" name='board_title' value="<%= board['board_title'] %>">
+
+    <label for="">Image URL: </label>
+    <input type="text" name='image_url' value="<%= board['image_url'] %>">
+
+    <button>Update food</button>
+</form>

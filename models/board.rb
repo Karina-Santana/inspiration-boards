@@ -14,7 +14,7 @@ def board_photos(user_id)
     run_sql("SELECT * FROM boards WHERE user_id = $1", [user_id])
 end
 
-def board_title(board_title)
+def get_board(board_title)
     run_sql("SELECT * FROM boards WHERE board_title = $1", [board_title])
 end
 

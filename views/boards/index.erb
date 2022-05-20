@@ -1,4 +1,4 @@
-<h1>Logo</h1>
+<h1>Logo 📷</h1>
 
 
 <% if logged_in? %>
@@ -10,18 +10,20 @@
 
         <button>Create board</button>
     </form>
-
-    <%= board_title['board_title'] %>
-    <input type="hidden" name="board_title" value="<%= board_title %>"> 
+    
+    
 
     <% board_photos.each do |photos| %>
+        <h2><%= photos['board_title'] %></h2>
+
+        <a href="/board/edit">Edit board</a>
+
         <img src="<%= photos['image_url'] %>" alt="">
     <% end %>
 
     <form action="/sessions" method="POST">
         <button>Logout</button>
         <input type="hidden" name="_method" value="delete">
-        
     </form>
 
 <% else %>

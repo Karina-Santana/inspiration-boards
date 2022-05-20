@@ -34,12 +34,6 @@ require './helpers/sessions_helper'
 get '/' do
   board_items = home_photos()
 
-  # if there_is_board?(id)
-  #   board_title = current_board["user_id"]
-  # else
-  #   board_title = []
-  # end
-  
 
   if logged_in?
     user_id = current_user["id"]
@@ -51,7 +45,16 @@ get '/' do
   erb :'boards/index', locals: {
     board_items: board_items,
     board_photos: board_photos
-    # board_title: board_title
+
+  }
+end
+
+get '/board/edit' do
+  board_title = params['board_title']
+  board = get_board(board_title)
+
+  erb :'boards/edit', locals: {
+    board: board
   }
 end
 
