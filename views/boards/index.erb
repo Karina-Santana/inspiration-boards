@@ -4,14 +4,7 @@
 <% if logged_in? %>
     <h2>Welcome <%= current_user['name'] %></h2>
 
-    <form action="/show_results">
-        <label for="">Search pictures: </label>
-        <input type="text" name="search_picture">
-
-        <button>🔎</button>
-    </form>
-
-    <form action="/create_board" method="POST">
+    <form action="/board" method="POST">
         <label for="">Create new board: </label>
         <input type="text" name="board_title">
 
@@ -25,18 +18,10 @@
     </form>
 
 <% else %>
-    <h2>Welcome to Karina's Inspiration Boards!</h2>
+    <h2>Welcome to Inspiration Boards!</h2>
 
     <a href="/sign_up">Sign up</a>
     <a href="/login">Login</a>
-
-
-    <form action="/show_results">
-        <label for="">Search pictures: </label>
-        <input type="text" name="search_picture">
-
-        <button>🔎</button>
-    </form>
 
 
     <section>

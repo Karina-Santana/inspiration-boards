@@ -19,9 +19,11 @@ CREATE TABLE users(
     password_digest TEXT
 );
 
--- CREATE TABLE boards(
---     id SERIAL PRIMARY KEY,
---     image_url TEXT,
---     title TEXT,
---     photo_by TEXT
--- );
+CREATE TABLE boards(
+    id SERIAL PRIMARY KEY,
+    board_title TEXT,
+    image_url TEXT
+);
+
+-- Write this on the terminal:
+-- heroku pg:push inspiration_board DATABASE_URL

@@ -33,26 +33,33 @@ require './helpers/sessions_helper'
 
 
 get '/' do
-  board_items = all_photos()
-  # binding.pry
+  board_items = home_photos()
+
   erb :'boards/index', locals: {
     board_items: board_items
-
   }
 end
 
 post '/board' do
   board_title = params['board_title']
   image_url = params['image_url']
-  picture_title = params['picture_title']
 
-  create_board(board_title, image_url, picture_title)
+  create_board(board_title, image_url)
 
-  redirect '/'
+  redirect '/add_picture'
 end
 
-post '/create_board' do
-  "Hello World"
+get '/add_picture' do
+  erb :'boards/new_board'
+end
+
+post '/add_picture' do
+  board_title = params['board_title']
+  image_url = params['image_url']
+
+  get_photos(board_title, image_url)
+
+  redirect '/'
 end
 
 get '/sign_up' do
@@ -91,25 +98,5 @@ delete '/sessions' do
   session['user_id'] = nil
 
   redirect '/'
-end
-
-get '/show_results' do
-  query = params['query']
-  client_id = params['client_id']
-
-  image_search = HTTParty.get("https://api.unsplash.com/search/photos/?page=1&query=#{query}>client_id=9hMYlaUVfo1Ka2sq_gvgTNrDj5h7tCW8YZO8eDkW1KQ")
-  
-  if image_search.empty?
-      "<h1>Sorry, no pictures for this search</h1>"
-  else
-      erb :show, locals: {
-        query: query,
-        image_search: image_search
-      }
-  end
-end
-
-get '/show_results' do
-  "Hello World"
 end
 
