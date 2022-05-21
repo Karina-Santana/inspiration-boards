@@ -45,24 +45,40 @@ get '/' do
 
   if logged_in?
     user_id = current_user["id"]
-    board_photos = board_photos(user_id)
+    boards = boards_by_user(user_id)
+    boards_copy = []
+
+    boards.each do |board|
+      board_copy = {"id" => board['id'].to_s, "user_id" => board['user_id'].to_s, "board_title" => board['board_title'].to_s}
+
+      board_id = board['id']
+      # logger.info("Board id: #{board_id}")
+      board_images = get_images(board_id)
+      board.store('images', board_images)
+      board_copy.store('images', board_images)
+      # logger.info("Images: #{board['images'][0]}")
+      boards_copy.push(board_copy)
+    end
+    # logger.info("Boards: #{boards_copy[0]['id']} #{boards_copy[0]['images'][0]}")
   else
-    board_photos = []
+    boards = []
   end
   
   erb :'boards/index', locals: {
     board_items: board_items,
-    board_photos: board_photos
-
+    boards: boards_copy
   }
 end
 
 get '/board/:id/edit' do
   id = params['id']
   board = get_board(id)
+  images = get_images(id)
 
+  #logger.info() will print on the terminal
   logger.info("id #{id}")
   logger.info("board #{board}")
+  logger.info("images #{images}")
 
   erb :'boards/edit', locals: {
     board: board
@@ -72,35 +88,43 @@ end
 put '/board/:id' do
   id = params['id']
   board_title = params['board_title']
-  image_url = params['image_url']
 
-  update_photos(board_title, image_url, id)
+  update_photos(board_title, id)
 
   redirect '/'
 end
 
-
 post '/board' do
   board_title = params['board_title']
+  user_id = current_user["id"]
 
-  redirect "/add_picture?board_title=#{board_title}"
+  insert_result = create_board(board_title, user_id)
+
+  logger.info("board_id #{insert_result['id']}")
+  
+  redirect "/#{insert_result['id']}/add_picture?board_title=#{board_title}"
 end
 
-get '/add_picture' do
+get "/:id/add_picture" do
   board_title = params['board_title']
+  board_id = params['id']
 
   erb :'boards/new_board', locals:{
-    board_title: board_title
+    board_title: board_title,
+    board_id: board_id
   }
 end
 
-post '/add_picture' do
+post '/:id/add_picture' do
   board_title = params['board_title']
-  image_url = params['image_url']
   user_id = current_user["id"]
 
-  create_board(board_title, image_url, user_id)
+  image_url = params['image_url']
+  board_id = params['id']
+
+  create_images(board_id, image_url)
  
+  logger.info("board_id #{board_id}")
   redirect '/'
 end
 
