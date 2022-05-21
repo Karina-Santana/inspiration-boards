@@ -22,10 +22,14 @@ CREATE TABLE users(
 CREATE TABLE boards(
     id SERIAL PRIMARY KEY,
     user_id INTEGER,
-    board_title TEXT,
-    image_url TEXT
+    board_title TEXT
 );
 
+CREATE TABLE images (
+    id SERIAL PRIMARY KEY,
+    board_id INTEGER,
+    image_url TEXT
+);
 
 
 -- Write this on the terminal to push:

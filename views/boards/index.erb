@@ -16,7 +16,7 @@
     <% board_photos.each do |photos| %>
         <h2><%= photos['board_title'] %></h2>
 
-        <a href="/board/edit">Edit board</a>
+        <a href="/board/<%= photos['id'] %>/edit">Edit board</a>
 
         <img src="<%= photos['image_url'] %>" alt="">
     <% end %>

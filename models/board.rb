@@ -14,16 +14,16 @@ def board_photos(user_id)
     run_sql("SELECT * FROM boards WHERE user_id = $1", [user_id])
 end
 
-def get_board(board_title)
-    run_sql("SELECT * FROM boards WHERE board_title = $1", [board_title])
-end
-
 def get_user_board(id)
     run_sql("SELECT * FROM boards WHERE user_id = $1", [id])
 end
 
-def update_photos(title, id)
-    run_sql("UPDATE boards SET title = $1 WHERE id = $2", [title, id])
+def get_board(id)
+    run_sql("SELECT * FROM boards WHERE id = $1", [id])[0]
+end
+
+def update_photos(board_title, image_url, id)
+    run_sql("UPDATE boards SET board_title = $1, image_url = $2 WHERE id = $3", [board_title, image_url, id])
 end
 
 def delete_photos(id)

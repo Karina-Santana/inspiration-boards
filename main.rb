@@ -6,6 +6,14 @@ require 'pry'
 require 'bcrypt'
 require 'httparty'
 
+use Rack::Logger
+
+helpers do
+  def logger
+    request.logger
+  end
+end
+
 # this makes the session hash work
 enable :sessions
 
@@ -49,14 +57,28 @@ get '/' do
   }
 end
 
-get '/board/edit' do
-  board_title = params['board_title']
-  board = get_board(board_title)
+get '/board/:id/edit' do
+  id = params['id']
+  board = get_board(id)
+
+  logger.info("id #{id}")
+  logger.info("board #{board}")
 
   erb :'boards/edit', locals: {
     board: board
   }
 end
+
+put '/board/:id' do
+  id = params['id']
+  board_title = params['board_title']
+  image_url = params['image_url']
+
+  update_photos(board_title, image_url, id)
+
+  redirect '/'
+end
+
 
 post '/board' do
   board_title = params['board_title']
