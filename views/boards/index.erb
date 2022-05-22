@@ -1,51 +1,91 @@
-<h1>Logo 📷</h1>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@800&family=Zen+Maru+Gothic:wght@300&display=swap" rel="stylesheet">
+
+<header class="header-index">
+    <img class="logo" src="https://cdn-icons-png.flaticon.com/512/1069/1069358.png?w=740&t=st=1653183642~exp=1653184242~hmac=90278462b4f785d191fd2f73fc999ea96323f53d713d0186fb7e3143eaa57286" alt="">
 
 
-<% if logged_in? %>
-    <h2>Welcome <%= current_user['name'] %></h2>
+    <% if logged_in? %>
+        <h2>Welcome <%= current_user['name'] %></h2>
 
-    <form action="/board" method="POST">
-        <label for="">Create new board: </label>
-        <input type="text" name="board_title">
+        <form action="/board" method="POST">
+            <label for="">Create a new board: </label>
+            <input type="text" name="board_title">
 
-        <button>Create board</button>
-    </form>
+            <button class="create-board-btn">Save</button>
+        </form>
 
-    <% boards.each do |board| %>
-        <h2><%= board['board_title'] %></h2>
+        
+            <% boards.each do |board| %>
+                <section class="board-background">
+                    <h2 class="board-title"><%= board['board_title'] %></h2>
 
-        <a href="/board/<%= board['id'] %>/edit">Edit board</a>
+                    <div class="board-header">
+                        <a class="edit-board-btn" href="/board/<%= board['id'] %>/edit">Edit board</a>
+                        
 
-        <% board['images'].each do |image| %>
+                        <form action="/board/<%= board['id'] %>" method="POST">
+                            <input type="hidden" name="_method" value="delete">
 
-            <img src="<%= image['image_url'] %>" alt="">
-        <% end %>
+                            <button class="delete-board-btn">Delete board</button>
+                        </form>
+                    </div>
+
+                        <div class="all-images-for-board">
+                            <% board['images'].each do |image| %>
+                                
+                                
+                                <img src="<%= image['image_url'] %>" alt="">
+
+                                <form action="/board/<%= board['id'] %>/image/<%= image['id'] %>" method="POST">
+                                    <input type="hidden" name="_method" value="delete">
+
+                                    <button class="delete-pic-btn">Delete picture</button>
+                                </form>
+                                
+                            <% end %>
+                        </div>
+                </section>
+                <div class="board-division"></div>
+
+            <% end %>
+        
+
+        <form action="/sessions" method="POST">
+            <button class="logout-btn">Logout</button>
+            <input type="hidden" name="_method" value="delete">
+        </form>
+
+    <% else %>
+        <h2>Welcome to Inspiration Boards!</h2>
+        <h3>Photography is everywhere creating memories, inspiring and helping to make dreams come true.</h3>
+        <h4>Sign up, create boards and add pictures to your Inspiration Boards!</h4>
+
+        <div class="sign-log-buttons">
+            <a class="sign-up-button" href="/sign_up">Sign up</a>
+            <a class="login-button" href="/login">Login</a>
+        </div>
+
+        <section>
+            <% board_items.each do |board| %>
+                <article>
+                    <img src="<%= board['image_url'] %>" alt="">
+
+                    <form action="/board/<%= board['id'] %>" method="POST">
+                        <input type="hidden" name="_method" value="delete">
+
+                    </form>
+                </article>
+            <% end %>
+        </section>
+
+        <footer>
+            <p class="created-by">Created by Karina Santana</p>
+            <p class="freepik">Logo and Picture Designed by Freepik</p>
+        </footer>
 
     <% end %>
 
-    <form action="/sessions" method="POST">
-        <button>Logout</button>
-        <input type="hidden" name="_method" value="delete">
-    </form>
-
-<% else %>
-    <h2>Welcome!</h2>
-
-    <a href="/sign_up">Sign up</a>
-    <a href="/login">Login</a>
-
-    <section>
-        <% board_items.each do |board| %>
-            <article>
-                <img src="<%= board['image_url'] %>" alt="">
-
-                <form action="/board/<%= board['id'] %>" method="POST">
-                    <input type="hidden" name="_method" value="delete">
-
-                </form>
-            </article>
-        <% end %>
-    </section>
-
-<% end %>
+</header>
 

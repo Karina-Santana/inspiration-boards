@@ -6,8 +6,8 @@ require 'pry'
 require 'bcrypt'
 require 'httparty'
 
+#this method bellow let me print on the terminal:
 use Rack::Logger
-
 helpers do
   def logger
     request.logger
@@ -42,7 +42,6 @@ require './helpers/sessions_helper'
 get '/' do
   board_items = home_photos()
 
-
   if logged_in?
     user_id = current_user["id"]
     boards = boards_by_user(user_id)
@@ -70,10 +69,19 @@ get '/' do
   }
 end
 
+delete '/board/:id' do
+  id = params['id']
+
+  delete_board(id)
+
+  redirect '/'
+end
+
 get '/board/:id/edit' do
   id = params['id']
   board = get_board(id)
   images = get_images(id)
+  board_title = params['board_title']
 
   #logger.info() will print on the terminal
   logger.info("id #{id}")
@@ -81,7 +89,8 @@ get '/board/:id/edit' do
   logger.info("images #{images}")
 
   erb :'boards/edit', locals: {
-    board: board
+    board: board,
+    board_title: board_title
   }
 end
 
@@ -89,7 +98,8 @@ put '/board/:id' do
   id = params['id']
   board_title = params['board_title']
 
-  update_photos(board_title, id)
+  #tenho que darum jeito de adc as imagens aqui
+  update_board(board_title, id)
 
   redirect '/'
 end
@@ -142,6 +152,10 @@ post '/create_user' do
   redirect '/'
 end
 
+get '/create_user' do
+  erb :'users/new'
+end
+
 get '/login' do
   erb :'sessions/new'
 end
@@ -156,6 +170,8 @@ post '/sessions' do
 
     session['user_id'] = user['id']
     redirect '/'
+  else
+    "Wrong email or password. Please try again"
   end
 end
 
@@ -163,6 +179,18 @@ end
 delete '/sessions' do
   session['user_id'] = nil
 
+  redirect '/'
+end
+
+delete '/board/:id/image/:id_img' do
+  id = params['id']
+  id_img = params['id_img']
+
+  # logger.info("board_id #{id}")
+  # logger.info("id_img #{id_img}")
+
+  delete_image(id_img)
+  
   redirect '/'
 end
 

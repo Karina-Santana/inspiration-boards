@@ -1,4 +1,10 @@
-<div>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@800&family=Zen+Maru+Gothic:wght@300&display=swap" rel="stylesheet">
+
+<div class="body-new-board">
+    <img class="logo" src="https://cdn-icons-png.flaticon.com/512/1069/1069358.png?w=740&t=st=1653183642~exp=1653184242~hmac=90278462b4f785d191fd2f73fc999ea96323f53d713d0186fb7e3143eaa57286" alt="">
+
     <h1><%= board_title %></h1>
     <form action="/<%= board_id %>/add_picture" method="POST">
         <p>Add a picture</p>
@@ -7,7 +13,7 @@
         <input type="text" name="image_url">
         <input type="hidden" name="board_title" value="<%= board_title %>">
 
-        <button>Add a picture</button>
+        <button class="add-picture-btn">Add a picture</button>
     </form>
 
 </div>

@@ -11,7 +11,7 @@ def create_images(board_id, image_url)
 end
 
 def get_images(id)
-    run_sql("SELECT image_url FROM images WHERE board_id = $1", [id])
+    run_sql("SELECT * FROM images WHERE board_id = $1", [id])
 end
 
 def boards_by_user(user_id)
@@ -26,13 +26,15 @@ def get_board(id)
     run_sql("SELECT * FROM boards WHERE id = $1", [id])[0]
 end
 
-
-
-def update_photos(board_title, id)
+def update_board(board_title, id)
     run_sql("UPDATE boards SET board_title = $1 WHERE id = $2", [board_title, id])
 end
 
-def delete_photos(id)
+def delete_image(id)
+    run_sql("DELETE FROM images WHERE id = $1", [id])
+end
+
+def delete_board(id)
     run_sql("DELETE FROM boards WHERE id = $1", [id])
 end
 

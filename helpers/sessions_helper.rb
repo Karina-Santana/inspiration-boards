@@ -23,13 +23,7 @@ def there_is_board?(id)
     end
 end
 
-# def current_board
-#     if there_is_board?(id)
-#         find_board_by_user_id(session['user_id'])
-#     else
-#         nil
-#     end
-# end
+
 
 # no database
 # helpers are files which store the methods for views

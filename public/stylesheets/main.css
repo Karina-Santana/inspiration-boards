@@ -1,3 +1,376 @@
-.logo img {
-    width: 200px;
+.logo {
+    width: 100px;
+    height: 100px;
+    align-items: center;
+    text-align: center;
+    margin: auto;
+}
+
+.header-index {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    text-align: center;
+    margin: auto;
+    margin-top: -10px;
+    font-family: 'Nunito', sans-serif;
+    font-family: 'Zen Maru Gothic', sans-serif;
+}
+
+.login-page {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    text-align: center;
+    margin: auto;
+    margin-top: 30px;
+    font-family: 'Nunito', sans-serif;
+    font-family: 'Zen Maru Gothic', sans-serif;
+}
+
+.log-in-title-page {
+    margin-bottom: 35px;
+}
+
+.login-btn {
+    background-color: rgb(250, 241, 229);
+    border-radius: 10px;
+    border: 1px solid white;
+    color: red;
+    font-family: 'Nunito', sans-serif;
+    font-family: 'Zen Maru Gothic', sans-serif;
+    padding: 5px 10px 5px 10px;
+    font-size: 15px;
+}
+
+.login-btn:hover {
+    background-color: #ffedaa;
+}
+
+.login-btn:active {
+    background-color: #f8dc5c;
+    transform: translateY(3px);
+}
+
+.header-index img {
+    margin-top: 30px;
+}
+
+.sign-up-button,
+.login-button {
+    color: red;
+    padding: 5px 8px 5px 8px;
+    border: 2px solid white;
+    border-radius: 10px;
+    background-color: rgb(250, 241, 229);
+}
+
+.sign-up-button {
+    margin-left: 500px;
+}
+
+.sign-up-button:hover {
+    background-color: #ffedaa;
+}
+
+.sign-up-button:active {
+    background-color: #f8dc5c;
+    transform: translateY(3px);
+}
+
+.login-button {
+    margin-right: 500px;
+}
+
+.login-button:hover {
+    background-color: #ffedaa;
+}
+
+.login-button:active {
+    background-color: #f8dc5c;
+    transform: translateY(3px);
+}
+
+.sign-log-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+
+}
+
+.create-board-btn,
+.update-board-btn,
+.add-img-btn,
+.add-picture-btn,
+.sign-up-btn {
+    color: red;
+    font-family: 'Nunito', sans-serif;
+    font-family: 'Zen Maru Gothic', sans-serif;
+    padding: 5px 8px 5px 8px;
+    border-radius: 10px;
+    background-color: rgb(250, 241, 229);
+    font-size: 15px;
+    border: none;
+}
+
+.create-board-btn {
+    border: none;
+}
+
+.create-board-btn:hover {
+    background-color: #ffedaa;
+}
+
+.create-board-btn:active {
+    background-color: #f8dc5c;
+    transform: translateY(3px);
+}
+
+.update-board-btn:hover {
+    background-color: #ffedaa;
+}
+
+.update-board-btn:active {
+    background-color: #f8dc5c;
+    transform: translateY(3px);
+}
+
+.add-img-btn:hover {
+    background-color: #ffedaa;
+}
+
+.add-img-btn:active {
+    background-color: #f8dc5c;
+    transform: translateY(3px);
+}
+
+.board-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    text-align: center;
+    margin: auto;
+}
+
+.add-picture-btn:hover {
+    background-color: #ffedaa;
+}
+
+.add-picture-btn:active {
+    background-color: #f8dc5c;
+    transform: translateY(3px);
+}
+
+.edit-board-btn,
+.delete-board-btn {
+    color: rgb(24, 129, 174);
+    font-family: 'Nunito', sans-serif;
+    font-family: 'Zen Maru Gothic', sans-serif;
+    border-radius: 10px;
+    background-color: white;
+    font-size: 15px;
+    margin-left: 170px;
+    margin-right: 170px;
+}
+
+.edit-board-btn:hover {
+    background-color: #f2f2f2;
+    color: rgb(32, 113, 148);
+}
+
+.edit-board-btn:active {
+    background-color: #e5e5e5;
+    transform: translateY(3px);
+    color: rgb(42, 97, 120);
+}
+
+.delete-board-btn:hover {
+    background-color: #f2f2f2;
+    color: rgb(32, 113, 148);
+}
+
+.delete-board-btn:active {
+    background-color: #e5e5e5;
+    transform: translateY(3px);
+    color: rgb(42, 97, 120);
+}
+
+.delete-board-btn {
+    padding: 5px 12px 5px 12px;
+    border: none;
+}
+
+.edit-board-btn {
+    padding: 5px 8px 5px 8px;
+}
+
+.delete-pic-btn,
+.logout-btn {
+    margin-top: 20px;
+    color: red;
+    font-family: 'Nunito', sans-serif;
+    font-family: 'Zen Maru Gothic', sans-serif;
+    padding: 5px 8px 5px 8px;
+    border-radius: 10px;
+    font-size: 15px;
+    border: none;
+    background-color: rgb(249, 234, 212);
+}
+
+.delete-pic-btn:hover {
+    background-color: #ffedaa;
+}
+
+.delete-pic-btn:active {
+    background-color: #f8dc5c;
+    transform: translateY(3px);
+}
+
+.delete-pic-btn {
+    margin-bottom: 20px;
+}
+
+.logout-btn {
+    margin-top: 0px;
+    margin-bottom: 20px;
+}
+
+.logout-btn:hover {
+    background-color: #ffedaa;
+}
+
+.logout-btn:active {
+    background-color: #f8dc5c;
+    transform: translateY(3px);
+}
+
+.sign-up-btn:hover {
+    background-color: #ffedaa;
+}
+
+.sign-up-btn:active {
+    background-color: #f8dc5c;
+    transform: translateY(3px);
+}
+
+.board-background {
+    background-color: rgb(250, 241, 229);
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    align-items: center;
+    text-align: center;
+    margin: auto;
+    padding-right: 30px;
+    padding-left: 30px;
+    padding-bottom: 30px;
+    display: inline-block;
+}
+
+.all-images-for-board img {
+    background-color: white;
+    border-bottom: 10px solid rgb(250, 241, 229);
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    text-align: center;
+}
+
+.board-title {
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.create-board-btn {
+    margin-bottom: 20px;
+}
+
+.board-division {
+    border-bottom: 40px solid white;
+    margin-top: 30px;
+}
+
+.created-by {
+    font-size: 15px;
+    margin-bottom: 0px;
+}
+
+.freepik {
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.created-by,
+.freepik {
+    font-family: 'Nunito', sans-serif;
+    font-family: 'Zen Maru Gothic', sans-serif;
+}
+
+.edit-board-body {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    text-align: center;
+    margin: auto;
+    margin-top: 30px;
+    font-family: 'Nunito', sans-serif;
+    font-family: 'Zen Maru Gothic', sans-serif;
+}
+
+.sign-up-body-page {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    text-align: center;
+    margin: auto;
+    margin-top: 30px;
+    font-family: 'Nunito', sans-serif;
+    font-family: 'Zen Maru Gothic', sans-serif;
+}
+
+.body-new-board {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    text-align: center;
+    margin: auto;
+    margin-top: 30px;
+    font-family: 'Nunito', sans-serif;
+    font-family: 'Zen Maru Gothic', sans-serif;
+}
+
+.edit-go-back {
+    margin-top: 40px;
+    color: red;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+.title-label,
+.img-url-label {
+    font-size: 18px;
+}
+
+input {
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+button {
+    cursor: pointer;
+}
+
+h4 {
+    margin-top: 0px;
+}
+
+.not-registered {
+    color: red;
+    margin-top: 10px;
+}
+
+span {
+    text-decoration: underline;
 }

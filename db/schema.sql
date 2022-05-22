@@ -8,7 +8,7 @@ CREATE TABLE home_pictures(
 );
 
 INSERT INTO home_pictures(image_url, posted_by)
-VALUES ('https://images.unsplash.com/photo-1505744288177-8a097ba01de0?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=385', 'Kelly Sikkema'), ('https://images.unsplash.com/photo-1567225557594-88d73e55f2cb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80', 'Minh Pham');
+VALUES ('https://img.freepik.com/free-photo/social-media-audience-crowd-filming-through-smartphones-remixed-media_53876-128943.jpg?w=826&t=st=1653184604~exp=1653185204~hmac=a06d97a79f3b1c2bdc510a3119e51b398d32a07f1190ebe51d7ee98373490ec4', 'Designed by Freepik');
 
 
 
@@ -33,5 +33,6 @@ CREATE TABLE images (
 
 
 -- Write this on the terminal to push:
+-- heroku pg:reset
 -- heroku pg:push inspiration_board DATABASE_URL
 

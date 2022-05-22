@@ -1,13 +1,32 @@
-<h1>Edit board</h1>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@800&family=Zen+Maru+Gothic:wght@300&display=swap" rel="stylesheet">
 
-<form action="/board/<%= board['id'] %>" method="POST">
-    <input type="hidden" name="_method" value="put">
 
-    <label for="">Title: </label>
-    <input type="text" name='board_title' value="<%= board['board_title'] %>">
+<body class="edit-board-body">
 
-    <label for="">Image URL: </label>
-    <input type="text" name='image_url' value="<%= board['image_url'] %>">
+    <img class="logo" src="https://cdn-icons-png.flaticon.com/512/1069/1069358.png?w=740&t=st=1653183642~exp=1653184242~hmac=90278462b4f785d191fd2f73fc999ea96323f53d713d0186fb7e3143eaa57286" alt="">
+    
+    <h1>Edit board</h1>
 
-    <button>Update food</button>
-</form>
+    <form action="/board/<%= board['id'] %>" method="POST">
+        <input type="hidden" name="_method" value="put">
+
+        <label class="title-label" for="">Title: </label>
+        <input type="text" name='board_title' value="<%= board['board_title'] %>">
+
+        <button class="update-board-btn">Update board</button>
+    </form>
+
+    <form action="/<%= board['id'] %>/add_picture" method="POST">
+        <h3>Add a new picture</h3>
+
+        <label class="img-url-label" for="">Image URL: </label>
+        <input type="text" name="image_url">
+        <input type="hidden" name="board_title" value="<%= board_title %>">
+
+        <button class="add-img-btn" >Add a picture</button>
+    </form>
+
+    <a class="edit-go-back" href="/">Go back to your account</a>
+</body>

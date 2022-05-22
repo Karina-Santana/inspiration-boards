@@ -1,10 +1,21 @@
-<h1>Log in</h1>
-<form action="/sessions" method="POST">
-    <label for="">Email:</label>
-    <input type="text" name='email'>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@800&family=Zen+Maru+Gothic:wght@300&display=swap" rel="stylesheet">
 
-    <label for="">Password:</label>
-    <input type="password" name='password'>
+<section class="login-page">
+    <img class="logo" src="https://cdn-icons-png.flaticon.com/512/1069/1069358.png?w=740&t=st=1653183642~exp=1653184242~hmac=90278462b4f785d191fd2f73fc999ea96323f53d713d0186fb7e3143eaa57286" alt="">
 
-    <button>Log in</button>
-</form>
+    <h1 class="log-in-title-page">Log in</h1>
+    <form action="/sessions" method="POST">
+        <label for="">Email:</label>
+        <input type="text" name='email'>
+
+        <label for="">Password:</label>
+        <input type="password" name='password'>
+
+        <button class="login-btn">Log in</button>
+    </form>
+
+    <a class="not-registered" href="/create_user">Are you not registered yet? <span>Sign up</span></a>
+</section>
+
