@@ -98,7 +98,7 @@ put '/board/:id' do
   id = params['id']
   board_title = params['board_title']
 
-  #tenho que darum jeito de adc as imagens aqui
+
   update_board(board_title, id)
 
   redirect '/'
