@@ -35,17 +35,19 @@
                         <div class="all-images-for-board">
                             <% board['images'].each do |image| %>
                                 
-                                
-                                <img src="<%= image['image_url'] %>" alt="">
+                                <div class="each-img">
+                                    <img src="<%= image['image_url'] %>" alt="">
 
-                                <form action="/board/<%= board['id'] %>/image/<%= image['id'] %>" method="POST">
-                                    <input type="hidden" name="_method" value="delete">
+                                    <form action="/board/<%= board['id'] %>/image/<%= image['id'] %>" method="POST">
+                                        <input type="hidden" name="_method" value="delete">
 
-                                    <button class="delete-pic-btn">Delete picture</button>
-                                </form>
+                                        <button class="delete-pic-btn">Delete picture</button>
+                                    </form>
+                                </div>
                                 
                             <% end %>
                         </div>
+                        
                 </section>
                 <div class="board-division"></div>
 
