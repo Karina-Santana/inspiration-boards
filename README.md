@@ -1,57 +1,34 @@
-# Inspiration Board app
+# Inspiration Boards app
 
 ## Sumary
 
-This is an application to search for images and inspirations to accomplish what you want.
-The app has more than 300,000 pictures coming from all over the world and you can use them for your Inspiration Board.
+This is a full-stack database backend application which was built for people create inspiration boards to organize their ideas and achieve what they want. 
 
 <a href="https://nameless-mountain-77703.herokuapp.com/">Click here to check it out</a>
 
 How to use it:
 
 - Sign up and log in to create your Inspiration Board.
-- Search for images by keywords of what you want to find.
-- When you find images that interest you, click the button with a heart icon to add to your Inspiration Board.
-- When the picture or the board is not more interesting for you, you can delete them.
-- You can edit the title of the picture and the title of the board.
+- Create a board, add how many image URLs you want.
+- When the picture or the board is not more interesting for you, you can edit or delete them.
+
+
+# Diagram:
+
+<img src="./images/diagram_app.jpeg">
 
 
 ## Plan
 
-# Diagram and Wireframes:
+- Create all tables for database. One for users, other for boards and other for images. The relation between them is basically one to many, so I can access the user ID and the board ID. 
 
-<img src="./images/diagram_app.jpeg">
+- Create the HTML elements.
 
-**Home Page:**
-
-<img src="./images/home_page.png">
-
-**Searching pictures**
-
-<img src="./images/searching.png">
-
-**Signing up**
-
-<img src="./images/signing_up.png">
-
-**Logging in**
-
-<img src="./images/logging_in.png">
-
-**Welcome to your Inspiration Board**
-
-<img src="./images/welcome_to_board.png">
-
-
-# Steps:
-
-
-
-# Database:
-
-
+- Create the basic operations (CRUD) for the whole application: get, post, put and delete requests allowing the user signing up, logging in, logging out, creating boards, editing boards, adding pictures and deleting pictures and boards.
 
 
 # Future Improvements
 
+- Use an API to allow users to search pictures and add them to their inspiration boards just clicking a button.
 
+- Improve CSS.

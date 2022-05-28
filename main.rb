@@ -25,18 +25,12 @@ require './models/board'
 require './models/user'
 
 # # controllers:
-# require './controllers/food_controller'
+# require './controllers/boards_controller'
 # require './controllers/sessions_controller'
 # require './controllers/users_controller'
 
 # # helpers:
 require './helpers/sessions_helper'
-
-# https://api.unsplash.com/photos/?client_id=YOUR_ACCESS_KEY
-
-#access key: 9hMYlaUVfo1Ka2sq_gvgTNrDj5h7tCW8YZO8eDkW1KQ
-#secret key: nsR7l0G4Gh9lUozGIE9sv66av9KDyX8WavFUuZl878E
-
 
 
 get '/' do
